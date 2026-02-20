@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { MessageSquare, FileText, BookOpen, Trophy } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const steps = [
   {
@@ -29,9 +30,7 @@ const steps = [
 ];
 
 export const HowItWorks = () => {
-  const scrollToContact = () => {
-    document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" });
-  };
+  const navigate = useNavigate();
 
   return (
     <section id="how-it-works" className="py-20 lg:py-32 bg-card">
@@ -80,7 +79,7 @@ export const HowItWorks = () => {
 
         <div className="text-center mt-16">
           <Button 
-            onClick={scrollToContact}
+            onClick={() => navigate("/contact")}
             size="lg"
             className="bg-primary hover:bg-primary-hover text-primary-foreground font-semibold px-8 shadow-lg shadow-primary/25"
           >

@@ -1,10 +1,9 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 export const FinalCTA = () => {
-  const scrollToContact = () => {
-    document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" });
-  };
+  const navigate = useNavigate();
 
   return (
     <section id="contact" className="py-20 lg:py-32 bg-gradient-to-br from-primary to-primary-hover relative overflow-hidden">
@@ -22,7 +21,7 @@ export const FinalCTA = () => {
           </p>
           
           <Button 
-            onClick={scrollToContact}
+            onClick={() => navigate("/contact")}
             size="lg"
             variant="secondary"
             className="bg-white text-primary hover:bg-white/90 font-semibold px-10 py-6 text-lg shadow-xl"

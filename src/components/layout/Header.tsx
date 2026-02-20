@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const navItems = [
   { label: "Home", href: "#hero" },
@@ -13,6 +14,7 @@ const navItems = [
 
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const navigate = useNavigate();
 
   const scrollToSection = (href: string) => {
     const element = document.querySelector(href);
@@ -54,7 +56,7 @@ export const Header = () => {
           {/* CTA Button */}
           <div className="hidden lg:block">
             <Button 
-              onClick={() => scrollToSection("#contact")}
+              onClick={() => navigate("/contact")}
               className="bg-primary hover:bg-primary-hover text-primary-foreground font-medium"
             >
               Book a Consultation
@@ -86,7 +88,7 @@ export const Header = () => {
                 </a>
               ))}
               <Button 
-                onClick={() => scrollToSection("#contact")}
+                onClick={() => { navigate("/contact"); setIsMenuOpen(false); }}
                 className="mt-2 bg-primary hover:bg-primary-hover text-primary-foreground font-medium w-full"
               >
                 Book a Consultation
